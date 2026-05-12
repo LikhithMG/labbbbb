@@ -1,0 +1,75 @@
+docker --version
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+sudo docker run hello-world
+mkdir my-python-app
+nano app.py
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "Hello! Docker running successfully"
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+nano Dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+EXPOSE 5000
+CMD ["python", "app.py"]
+nano requirements.txt
+flask
+sudo systemctl start docker
+sudo systemctl status docker
+docker build -t image-pqr .
+docker images
+docker run -d -p 5000:5000 --name container image-pqr
+localhost:5000
+
+
+pro 1
+
+
+docker --version
+mkdir my-python-app
+cd my-python-app
+nano app.py
+nano Dockerfile
+nano requirements.txt
+git init
+git config --global user.name "Liki"
+git config --global user.email ""
+git add .
+git commit -m "initial commit"
+git remote add origin <github_repo_link>
+git branch -M master
+git push -u origin master
+sudo docker build -t my-python-app .
+docker tag my-python-app:latest Padmanabha18/my-python-app:latest
+docker images
+sudo docker run -d -p 5000:5000 --name container Padmanabha18/my-python-app:latest
+docker login -u Padmanabha18
+sudo docker push Padmanabha18/my-python-app:latest
+sudo apt update
+sudo apt install openjdk-17-jre
+wget [https://get.jenkins.io/war-stable/latest/jenkins.war](https://get.jenkins.io/war-stable/latest/jenkins.war)
+java -jar jenkins.war --httpPort=8086
+localhost:8086
+
+
+
+
+
+
+
+
+
+
+
+
